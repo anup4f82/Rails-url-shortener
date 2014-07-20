@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
 
-   root :to => 'urls#index'
+   root :to => 'users#index'
 
    get '/anup.p/:id' => 'urls#show'
 
-  resources :urls
+  resources :users do
+    resources :urls
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

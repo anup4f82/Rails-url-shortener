@@ -5,6 +5,6 @@ class Urls < ActiveRecord::Migration
   	  t.string :original
   	  t.string :shorturl
   	  t.integer :counter
-  	end
+   end
   end
 end
