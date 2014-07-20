@@ -1,0 +1,35 @@
+<h1>Welcome to URL Shortener</h1>
+
+
+<%= form_tag("/urls") do %>
+<%= label_tag(:url, "Enter URL to shorten") %>
+<%= text_field_tag(:url) %>
+<%= submit_tag("Submit") %>
+<% end %>
+
+<% if @shortened_url %>
+<h1>Shortened URL: </h1>
+<%= link_to @shortened_url, @shortened_url   %>
+Counter:<%= @counter || ""%>
+<%#= @shortened_url %>
+<% end %>
+
+<h2> List of URLs </h2>
+<p>Original     Short    Counter</p>
+<% @url.each do |u| %>
+<%= u.original %>
+&nbsp;
+&nbsp;
+&nbsp;
+<%= link_to u.shorturl,u.shorturl%>
+&nbsp;
+&nbsp;
+&nbsp;
+<%= u.counter %>
+<br>
+<br>
+<br>
+<% end %>
+
+
+

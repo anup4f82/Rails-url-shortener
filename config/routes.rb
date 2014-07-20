@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+
+   root :to => 'urls#index'
+
+   get '/anup.p/:id' => 'urls#show'
+
+  resources :urls
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
