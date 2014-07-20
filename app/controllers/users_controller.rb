@@ -11,13 +11,18 @@ class UsersController < ApplicationController
   end
 
   def create
-  	puts "before"
-  	puts params
-  	puts params[:user]
-  	puts params[:password]
-  	puts "after"
-    @user = User.new(params[:user])
-    @user.password = params[:password]
+  
+    @user = User.new(user_params)
+    # puts "userbefore"
+    # puts @user
+    # puts "userafter"
+    # puts params
+    # puts params["user"]["password_hash"]
+    # puts "after"
+    # puts params["users"]["password_hash"]
+    @user.password = params["user"]["password_hash"]
+    @user.save!
+    render :index
     # User.create(username:params["username"],password:params["password"])
   
   end
